@@ -85,37 +85,28 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Vehicle Login',
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
       body: Container(
         constraints: BoxConstraints.expand(),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/vehicle_background.jpg'),
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
           ),
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Text(
-                  'TeleCar',
-                  style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold, color: Colors.white),
+        child: Center(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  'Welcome To TeleCar',
+                  style: TextStyle(fontSize: 35.0, fontWeight: FontWeight.bold, color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
-              ),
-              SizedBox(height: 16.0),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: TextField(
+                SizedBox(height: 130.0),
+                TextField(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                   style: TextStyle(fontSize: 18.0, color: Colors.white),
@@ -124,11 +115,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     labelStyle: TextStyle(fontSize: 18.0, color: Colors.white),
                   ),
                 ),
-              ),
-              SizedBox(height: 16.0),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: TextField(
+                SizedBox(height: 16.0),
+                TextField(
                   controller: _passwordController,
                   obscureText: true,
                   style: TextStyle(fontSize: 18.0, color: Colors.white),
@@ -137,11 +125,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     labelStyle: TextStyle(fontSize: 18.0, color: Colors.white),
                   ),
                 ),
-              ),
-              SizedBox(height: 32.0),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: ElevatedButton(
+                SizedBox(height: 32.0),
+                ElevatedButton(
                   onPressed: _login,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white, // White background
@@ -151,11 +136,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: TextStyle(fontSize: 18.0, color: Colors.black),
                   ),
                 ),
-              ),
-              SizedBox(height: 16.0),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: ElevatedButton(
+                SizedBox(height: 16.0),
+                ElevatedButton(
                   onPressed: _goToSignupPage,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white, // White background
@@ -165,8 +147,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: TextStyle(fontSize: 18.0, color: Colors.black),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

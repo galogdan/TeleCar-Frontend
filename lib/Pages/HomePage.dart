@@ -9,7 +9,7 @@ import 'LoginScreen.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'ServicesTab.dart';
-import 'ForumTab.dart';  // Import the ForumPage
+import 'ForumTab.dart'; // Import the ForumPage
 import 'package:vehicle_me/config.dart';
 import 'package:vehicle_me/Services/chat_service.dart';
 
@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
   UserRegistration _userData = UserRegistration.empty();
   late Timer _tokenValidityTimer;
-  List<Map<String, dynamic>> _lastChats = [];  // Add this line
+  List<Map<String, dynamic>> _lastChats = []; // Add this line
 
   @override
   void initState() {
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
         setState(() {
           _userData = UserRegistration.fromJson(userData);
         });
-        _loadLastChats();  // Load chats after loading user profile
+        _loadLastChats(); // Load chats after loading user profile
       } else {
         _handleError('Failed to load user profile (${response.statusCode})');
       }
@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
   void _loadLastChats() async {
     try {
       final response = await http.get(
-        Uri.parse('http://192.168.1.100:8000/ws/last-chats/${_userData.vehicle.carId}'),  // Corrected carID reference
+        Uri.parse('http://192.168.1.100:8000/ws/last-chats/${_userData.vehicle.carId}'), // Corrected carID reference
         headers: {
           'Authorization': 'Bearer ${widget.authToken}',
         },
@@ -147,13 +147,22 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('TeleCar'),
+        backgroundColor: Colors.deepPurple,
+        title: Text(
+          'TeleCar',
+          style: TextStyle(
+            fontFamily: 'Lobster', // Apply the custom font
+            fontSize: 38,
+            color: Colors.white,
+          ),
+        ),
       ),
       body: _buildTabContent(),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.deepPurple,
         currentIndex: _currentIndex,
-        unselectedItemColor: Colors.black,
-        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.deepPurple.shade200,
+        selectedItemColor: Colors.deepPurple,
         useLegacyColorScheme: true,
         onTap: (index) {
           setState(() {
@@ -193,7 +202,7 @@ class _HomePageState extends State<HomePage> {
           authToken: widget.authToken,
           userData: _userData,
           users: [],
-          lastChats: _lastChats,  // Pass the last chats to ChatTab
+          lastChats: _lastChats, // Pass the last chats to ChatTab
         );
       case 1:
         return MarketTab();

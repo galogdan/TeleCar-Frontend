@@ -5,6 +5,7 @@ import 'package:geolocator/geolocator.dart';
 import 'dart:convert';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:vehicle_me/config.dart';
+import 'package:vehicle_me/Services/Loading.dart';
 
 class LocateServicesPage extends StatefulWidget {
   final String authToken;
@@ -121,8 +122,17 @@ class _LocateServicesPageState extends State<LocateServicesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.deepPurple.shade100,
       appBar: AppBar(
-        title: Text('Locate Vehicle Services'),
+        backgroundColor: Colors.deepPurple,
+        title: Text(
+          'Locate Services',
+          style: TextStyle(
+            fontFamily: 'Oswald', // Apply the custom font
+            fontSize: 28,
+            color: Colors.white,
+          ),
+        ),
       ),
       body: Column(
         children: [
@@ -157,7 +167,7 @@ class _LocateServicesPageState extends State<LocateServicesPage> {
               ),
               markers: Set.from(_markers),
             )
-                : Center(child: CircularProgressIndicator()),
+                : Center(child: CustomLoadingIndicator()),
           ),
           Expanded(
             flex: 2,

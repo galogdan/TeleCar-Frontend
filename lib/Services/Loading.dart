@@ -6,7 +6,7 @@ class CustomLoadingIndicator extends StatelessWidget {
   final Color color;
   final double size;
 
-  CustomLoadingIndicator({this.color = Colors.blue, this.size = 50.0});
+  CustomLoadingIndicator({this.color = Colors.deepPurple, this.size = 50.0});
 
   @override
   Widget build(BuildContext context) {

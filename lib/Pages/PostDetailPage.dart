@@ -45,8 +45,17 @@ class _PostDetailPageState extends State<PostDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.deepPurple.shade100,
       appBar: AppBar(
-        title: Text('Post Details'),
+        backgroundColor: Colors.deepPurple,
+        title: Text(
+          'Post Details',
+          style: TextStyle(
+            fontFamily: 'Oswald', // Apply the custom font
+            fontSize: 28,
+            color: Colors.white,
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

@@ -86,8 +86,17 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.deepPurple.shade100,
       appBar: AppBar(
-        title: Text('Personal Info'),
+        backgroundColor: Colors.deepPurple,
+        title: Text(
+          'Personal Info',
+          style: TextStyle(
+            fontFamily: 'Oswald', // Apply the custom font
+            fontSize: 28,
+            color: Colors.white,
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

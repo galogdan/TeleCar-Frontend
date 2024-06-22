@@ -5,6 +5,7 @@ import 'package:geolocator/geolocator.dart';
 import 'dart:convert';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:vehicle_me/config.dart';
+import 'package:vehicle_me/Services/Loading.dart';
 
 class ParkingPage extends StatefulWidget {
   @override
@@ -114,8 +115,17 @@ class _ParkingPageState extends State<ParkingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.deepPurple.shade100,
       appBar: AppBar(
-        title: Text('Locate Parking'),
+        backgroundColor: Colors.deepPurple,
+        title: Text(
+          'Locate Parking',
+          style: TextStyle(
+            fontFamily: 'Oswald', // Apply the custom font
+            fontSize: 28,
+            color: Colors.white,
+          ),
+        ),
       ),
       body: _locationFetched
           ? Column(
@@ -152,7 +162,7 @@ class _ParkingPageState extends State<ParkingPage> {
           ),
         ],
       )
-          : Center(child: CircularProgressIndicator()),
+          : Center(child: CustomLoadingIndicator()),
       floatingActionButton: _locationFetched
           ? FloatingActionButton(
         onPressed: _fetchParkingLocations,

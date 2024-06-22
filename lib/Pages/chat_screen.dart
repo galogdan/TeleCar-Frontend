@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:web_socket_channel/io.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import 'dart:convert';
+import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'package:vehicle_me/Models/User.dart';
 import 'package:vehicle_me/config.dart';
@@ -29,6 +30,7 @@ class _ChatScreenState extends State<ChatScreen> {
   final ScrollController _scrollController = ScrollController();
   late WebSocketChannel channel;
   List<Map<String, dynamic>> _messages = [];
+  Timer? _timer;
 
   @override
   void initState() {
@@ -36,9 +38,17 @@ class _ChatScreenState extends State<ChatScreen> {
     if (widget.userData.vehicle != null) {
       initializeWebSocket();
       _fetchMessages();
+      _startTimer();
     } else {
       print('Error: userData.vehicle is null');
     }
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    channel.sink.close();
+    super.dispose();
   }
 
   void initializeWebSocket() {
@@ -126,6 +136,23 @@ class _ChatScreenState extends State<ChatScreen> {
     }
   }
 
+  Future<void> _deleteMessage(String messageId) async {
+    final response = await http.delete(
+      Uri.parse('http://192.168.1.100:8000/ws/messages/$messageId'),
+      headers: {
+        'Authorization': 'Bearer ${widget.authToken}',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      setState(() {
+        _messages.removeWhere((message) => message['_id'] == messageId);
+      });
+    } else {
+      print('Failed to delete message');
+    }
+  }
+
   void _scrollToBottom() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (_scrollController.hasClients) {
@@ -138,6 +165,12 @@ class _ChatScreenState extends State<ChatScreen> {
     });
   }
 
+  void _startTimer() {
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      _fetchMessages();
+    });
+  }
+
   String formatTimestamp(String timestamp) {
     final DateTime dateTime = DateTime.parse(timestamp);
     return DateFormat('dd/MM/yyyy HH:mm').format(dateTime);
@@ -146,20 +179,17 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.deepPurple.shade100,
       appBar: AppBar(
-        title: Text('Chat with ${widget.carId}'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.delete),
-            onPressed: () {
-              // Implement chat deletion logic if needed
-              setState(() {
-                _messages.clear();
-              });
-              Navigator.pop(context);
-            },
+        backgroundColor: Colors.deepPurple,
+        title: Text(
+          'Chat with ${widget.carId}',
+          style: TextStyle(
+            fontFamily: 'Oswald', // Apply the custom font
+            fontSize: 28,
+            color: Colors.white,
           ),
-        ],
+        ),
       ),
       body: Column(
         children: [
@@ -176,7 +206,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
                     padding: EdgeInsets.all(10.0),
                     decoration: BoxDecoration(
-                      color: isSentByMe ? Colors.green[100] : Colors.blue[100],
+                      color: isSentByMe ? Colors.deepPurple.shade200 : Colors.indigo[300],
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: Column(
@@ -186,18 +216,30 @@ class _ChatScreenState extends State<ChatScreen> {
                           isSentByMe ? 'Me' : message['sender'],
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: isSentByMe ? Colors.green[900] : Colors.blue[900],
+                            color: isSentByMe ? Colors.deepPurple : Colors.indigo[900],
                           ),
                         ),
                         SizedBox(height: 5.0),
                         Text(message['message']),
                         SizedBox(height: 5.0),
-                        Text(
-                          formatTimestamp(message['timestamp']),
-                          style: TextStyle(
-                            fontSize: 10.0,
-                            color: Colors.grey,
-                          ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              formatTimestamp(message['timestamp']),
+                              style: TextStyle(
+                                fontSize: 10.0,
+                                color: Colors.black,
+                              ),
+                            ),
+                            if (isSentByMe)
+                              IconButton(
+                                icon: Icon(Icons.delete, size: 16.0),
+                                onPressed: () {
+                                  _deleteMessage(message['_id']);
+                                },
+                              ),
+                          ],
                         ),
                       ],
                     ),
@@ -236,11 +278,5 @@ class _ChatScreenState extends State<ChatScreen> {
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    channel.sink.close();
-    super.dispose();
   }
 }

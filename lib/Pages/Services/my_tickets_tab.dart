@@ -121,8 +121,17 @@ class _MyTicketsPageState extends State<MyTicketsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.deepPurple.shade100,
       appBar: AppBar(
-        title: Text('My Tickets'),
+        backgroundColor: Colors.deepPurple,
+        title: Text(
+          'My Tickets',
+          style: TextStyle(
+            fontFamily: 'Oswald', // Apply the custom font
+            fontSize: 28,
+            color: Colors.white,
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

@@ -29,10 +29,23 @@ class ProfileTab extends StatelessWidget {
     String gender = user.gender ? "Male" : "Female";
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple,
+        title: Text(
+          'User Profile',
+          style: TextStyle(
+            fontFamily: 'Oswald', // Apply the custom font
+            fontSize: 28,
+            color: Colors.white,
+          ),
+        ),
+      ),
+      backgroundColor: Colors.deepPurple.shade100,
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16.0),
         child: Card(
-          color: Colors.grey[50],
+          surfaceTintColor: Colors.deepPurple,
+          color: Colors.deepPurple.shade50,
           elevation: 8.0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.0),
@@ -44,47 +57,47 @@ class ProfileTab extends StatelessWidget {
               children: [
                 Text(
                   'First Name: ${user.first_name}',
-                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold , fontFamily: 'Oswald',letterSpacing: 1 ),
                 ),
                 SizedBox(height: 8.0),
                 Text(
                   'Last Name: ${user.last_name}',
-                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, fontFamily: 'Oswald',letterSpacing: 1),
                 ),
                 SizedBox(height: 16.0),
                 Text(
                   'Email: ${user.email}',
-                  style: TextStyle(fontSize: 20.0),
+                  style: TextStyle(fontSize: 20.0, fontFamily: 'Oswald',letterSpacing: 1),
                 ),
                 SizedBox(height: 16.0),
                 Text(
                   'Car ID: ${user.vehicle.carId}',
-                  style: TextStyle(fontSize: 20.0),
+                  style: TextStyle(fontSize: 20.0, fontFamily: 'Oswald',letterSpacing: 1),
                 ),
                 SizedBox(height: 8.0),
                 Text(
                   'Color: ${user.vehicle.color}',
-                  style: TextStyle(fontSize: 20.0),
+                  style: TextStyle(fontSize: 20.0, fontFamily: 'Oswald',letterSpacing: 1),
                 ),
                 SizedBox(height: 8.0),
                 Text(
                   'Brand: ${user.vehicle.brend}',
-                  style: TextStyle(fontSize: 20.0),
+                  style: TextStyle(fontSize: 20.0, fontFamily: 'Oswald',letterSpacing: 1),
                 ),
                 SizedBox(height: 8.0),
                 Text(
                   'Model: ${user.vehicle.model}',
-                  style: TextStyle(fontSize: 20.0),
+                  style: TextStyle(fontSize: 20.0, fontFamily: 'Oswald',letterSpacing: 1, ),
                 ),
                 SizedBox(height: 16.0),
                 Text(
                   'Year: ${user.vehicle.year}',
-                  style: TextStyle(fontSize: 20.0),
+                  style: TextStyle(fontSize: 20.0, fontFamily: 'Oswald',letterSpacing: 1),
                 ),
                 SizedBox(height: 16.0),
                 Text(
                   'Gender: $gender',
-                  style: TextStyle(fontSize: 20.0),
+                  style: TextStyle(fontSize: 20.0, fontFamily: 'Oswald',letterSpacing: 1),
                 ),
 
               ],

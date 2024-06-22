@@ -43,8 +43,17 @@ class _StockInfoPageState extends State<StockInfoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.deepPurple.shade100,
       appBar: AppBar(
-        title: Text('Stock Info'),
+        backgroundColor: Colors.deepPurple,
+        title: Text(
+          'Stock Info',
+          style: TextStyle(
+            fontFamily: 'Oswald', // Apply the custom font
+            fontSize: 28,
+            color: Colors.white,
+          ),
+        ),
       ),
       body: FutureBuilder<List<Map<String, dynamic>>>(
         future: _stockInfo,
@@ -65,7 +74,7 @@ class _StockInfoPageState extends State<StockInfoPage> {
                 return Card(
                   margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
                   child: ListTile(
-                    leading: Icon(Icons.business, size: 40, color: Colors.blue),
+                    leading: Icon(Icons.business, size: 40, color: Colors.deepPurple),
                     title: Text(stock['name'] ?? 'N/A', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

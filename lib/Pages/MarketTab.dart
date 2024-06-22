@@ -5,11 +5,12 @@ import 'package:vehicle_me/Models/Auction.dart';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import 'package:vehicle_me/config.dart';
+import 'package:vehicle_me/Services/Loading.dart';
 
-int selectedYear = 1970; // שנת הברירת מחדל
-String selectedManufacturer = ''; // יצרן ברירת מחדל
-String selectedModel = ''; // דגם ברירת מחדל
-String selectedPrefix = '050'; // קידומת ברירת מחדל
+int selectedYear = 1970; //
+String selectedManufacturer = ''; //
+String selectedModel = ''; //
+String selectedPrefix = '050'; //
 
 Map<String, List<String>> carModels = {};
 
@@ -106,7 +107,7 @@ class _MarketTabState extends State<MarketTab> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     if (isLoading) ...[
-                      Center(child: CircularProgressIndicator())
+                      Center(child: CustomLoadingIndicator())
                     ] else ...[
                       _buildRowWithTitle('Manufacturer:', DropdownButton<String>(
                         value: selectedManufacturer.isEmpty ? null : selectedManufacturer,
@@ -325,9 +326,21 @@ class _MarketTabState extends State<MarketTab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple,
+        title: Text(
+          'Market',
+          style: TextStyle(
+            fontFamily: 'Oswald', // Apply the custom font
+            fontSize: 28,
+            color: Colors.white,
+          ),
+        ),
+      ),
+      backgroundColor: Colors.deepPurple.shade100,
       resizeToAvoidBottomInset: false,
       body: isLoading
-          ? Center(child: CircularProgressIndicator()) // חיווי טעינה
+          ? Center(child: CustomLoadingIndicator()) //
           : SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

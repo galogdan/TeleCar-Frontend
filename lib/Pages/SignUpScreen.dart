@@ -75,91 +75,112 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Signup'),
+        backgroundColor: Colors.deepPurple,
       ),
-      body: Padding(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.deepPurple, Colors.purpleAccent],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
         padding: EdgeInsets.all(16.0),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextField(
-                controller: _emailController,
-                decoration: InputDecoration(
-                  labelText: 'Email',
+              Text(
+                'Create an Account',
+                style: TextStyle(
+                  fontSize: 32.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
               ),
+              SizedBox(height: 32.0),
+              _buildTextField(_emailController, 'Email'),
               SizedBox(height: 16.0),
-              TextField(
-                controller: _passwordController,
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: 'Password',
-                ),
-              ),
+              _buildTextField(_passwordController, 'Password', obscureText: true),
               SizedBox(height: 16.0),
-              TextField(
-                controller: _repeatPasswordController,
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: 'Repeat Password',
-                ),
-              ),
+              _buildTextField(_repeatPasswordController, 'Repeat Password', obscureText: true),
               SizedBox(height: 16.0),
-              TextField(
-                controller: _carIdController,
-                decoration: InputDecoration(
-                  labelText: 'Car ID',
-                ),
-              ),
+              _buildTextField(_carIdController, 'Car ID'),
               SizedBox(height: 16.0),
-              TextField(
-                controller: _firstNameController,
-                decoration: InputDecoration(
-                  labelText: 'First Name',
-                ),
-              ),
+              _buildTextField(_firstNameController, 'First Name'),
               SizedBox(height: 16.0),
-              TextField(
-                controller: _lastNameController,
-                decoration: InputDecoration(
-                  labelText: 'Last Name',
-                ),
-              ),
+              _buildTextField(_lastNameController, 'Last Name'),
               SizedBox(height: 16.0),
-              Row(
-                children: [
-                  Text('Gender:'),
-                  SizedBox(width: 8.0),
-                  DropdownButton<bool>(
-                    value: _isMale,
-                    onChanged: (value) {
-                      setState(() {
-                        _isMale = value!;
-                      });
-                    },
-                    items: [
-                      DropdownMenuItem<bool>(
-                        value: true,
-                        child: Text('Male'),
-                      ),
-                      DropdownMenuItem<bool>(
-                        value: false,
-                        child: Text('Female'),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+              _buildGenderDropdown(),
               SizedBox(height: 32.0),
               ElevatedButton(
                 onPressed: _signup,
-                child: Text('Signup'),
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                  backgroundColor: Colors.white,
+                ),
+                child: Text(
+                  'Signup',
+                  style: TextStyle(fontSize: 18.0, color: Colors.deepPurple),
+                ),
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildTextField(TextEditingController controller, String labelText, {bool obscureText = false}) {
+    return TextField(
+      controller: controller,
+      obscureText: obscureText,
+      style: TextStyle(color: Colors.white),
+      decoration: InputDecoration(
+        labelText: labelText,
+        labelStyle: TextStyle(color: Colors.white),
+        filled: true,
+        fillColor: Colors.white24,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30.0),
+          borderSide: BorderSide.none,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildGenderDropdown() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          'Gender:',
+          style: TextStyle(fontSize: 18.0, color: Colors.white),
+        ),
+        SizedBox(width: 8.0),
+        DropdownButton<bool>(
+          value: _isMale,
+          dropdownColor: Colors.deepPurple,
+          onChanged: (value) {
+            setState(() {
+              _isMale = value!;
+            });
+          },
+          items: [
+            DropdownMenuItem<bool>(
+              value: true,
+              child: Text('Male', style: TextStyle(color: Colors.white)),
+            ),
+            DropdownMenuItem<bool>(
+              value: false,
+              child: Text('Female', style: TextStyle(color: Colors.white)),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

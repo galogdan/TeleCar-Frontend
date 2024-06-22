@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
+import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'package:vehicle_me/Models/User.dart';
 import 'chat_screen.dart';
@@ -21,6 +22,7 @@ class _ChatTabState extends State<ChatTab> {
   final TextEditingController _carIdController = TextEditingController();
   List<Map<String, dynamic>> _lastChats = [];
   String _errorMessage = '';
+  Timer? _timer;
 
   @override
   void initState() {
@@ -28,7 +30,20 @@ class _ChatTabState extends State<ChatTab> {
     _lastChats = widget.lastChats;
     if (widget.userData.vehicle.carId != '') {
       _loadLastChats();
+      _startTimer();
     }
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  void _startTimer() {
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      _loadLastChats();
+    });
   }
 
   Future<void> _loadLastChats() async {
@@ -68,7 +83,7 @@ class _ChatTabState extends State<ChatTab> {
   Future<bool> _checkCarIdExists(String carId) async {
     try {
       final response = await http.get(
-        Uri.parse('$currentIP/users/$carId'),
+        Uri.parse('$currentIP/ws/users/$carId'),
         headers: {
           'Authorization': 'Bearer ${widget.authToken}',
         },
@@ -126,11 +141,37 @@ class _ChatTabState extends State<ChatTab> {
     return message;
   }
 
+  Future<void> _deleteChat(String chatPartner, int index) async {
+    final response = await http.delete(
+      Uri.parse('http://192.168.1.100:8000/ws/chats/${widget.userData.vehicle.carId}/$chatPartner'),
+      headers: {
+        'Authorization': 'Bearer ${widget.authToken}',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      setState(() {
+        _lastChats.removeAt(index);
+      });
+    } else {
+      print('Failed to delete chat');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.deepPurple.shade100,
       appBar: AppBar(
-        title: Text('Chats'),
+        backgroundColor: Colors.deepPurple,
+      title: Text(
+      'Chats',
+      style: TextStyle(
+        fontFamily: 'Oswald', // Apply the custom font
+        fontSize: 28,
+        color: Colors.white,
+         ),
+       ),
       ),
       body: Column(
         children: [
@@ -176,10 +217,7 @@ class _ChatTabState extends State<ChatTab> {
                   trailing: IconButton(
                     icon: Icon(Icons.delete),
                     onPressed: () async {
-                      // Implement chat deletion logic if needed
-                      setState(() {
-                        _lastChats.removeAt(index);
-                      });
+                      await _deleteChat(chatPartner, index);
                     },
                   ),
                   onTap: () {

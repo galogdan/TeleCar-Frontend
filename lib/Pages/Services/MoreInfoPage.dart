@@ -47,8 +47,17 @@ class _MoreInfoPageState extends State<MoreInfoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.deepPurple.shade100,
       appBar: AppBar(
-        title: Text('More Info'),
+        backgroundColor: Colors.deepPurple,
+        title: Text(
+          'More Info',
+          style: TextStyle(
+            fontFamily: 'Oswald', // Apply the custom font
+            fontSize: 28,
+            color: Colors.white,
+          ),
+        ),
       ),
       body: FutureBuilder<Map<String, dynamic>>(
         future: _vehicleInfo,
@@ -100,7 +109,7 @@ class _MoreInfoPageState extends State<MoreInfoPage> {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8.0),
       child: ListTile(
-        leading: Icon(icon, size: 40, color: Colors.blue),
+        leading: Icon(icon, size: 40, color: Colors.deepPurple),
         title: Text(title, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
         subtitle: Text(value, style: TextStyle(fontSize: 16)),
       ),
