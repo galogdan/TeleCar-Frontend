@@ -3,10 +3,6 @@
 
 TeleCar is a revolutionary mobile application that brings the power of connectivity to your vehicle. This repository contains the frontend code for the TeleCar app, built with Flutter.
 
-Login and SignUp:
-
-![login_screen](https://github.com/user-attachments/assets/b54524cd-d394-4dfa-a232-511c4a76852d)   ![signup_screen](https://github.com/user-attachments/assets/4bdf5300-4b1c-41a0-b371-0dc051c9ca99)
-
 
 
 ## ✨ Features
@@ -14,7 +10,6 @@ Login and SignUp:
 - 🔐 Secure user authentication
 - 💬 Real-time chat with other drivers
 - 🛒 In-app marketplace for vehicle-related items
-- 📊 Vehicle performance dashboard
 - 🗺️ Integrated maps for finding nearby services
 - 📅 Maintenance scheduling and reminders
 - 🚘 Vehicle information management
@@ -22,11 +17,9 @@ Login and SignUp:
 
 ## 🚀 Getting Started
 
-### Prerequisites
+Login and SignUp:
 
-- Flutter SDK (2.0 or higher)
-- Dart SDK (2.12 or higher)
-- Android Studio or VS Code with Flutter extensions
+![login_screen](https://github.com/user-attachments/assets/b54524cd-d394-4dfa-a232-511c4a76852d)   ![signup_screen](https://github.com/user-attachments/assets/4bdf5300-4b1c-41a0-b371-0dc051c9ca99)
 
 
 
