@@ -43,6 +43,10 @@ Services Tab:
 ![services_tab](https://github.com/user-attachments/assets/579c1729-ceb8-4a70-9919-bec098141c3f)
 
 
+Market Tab:
+
+![market_tab](https://github.com/user-attachments/assets/a4c69702-bc06-49c4-a7fc-6e064c0dfbc9)
+
 
 ## 📱 Usage
 
