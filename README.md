@@ -22,6 +22,27 @@ Login and SignUp:
 ![login_screen](https://github.com/user-attachments/assets/b54524cd-d394-4dfa-a232-511c4a76852d)   ![signup_screen](https://github.com/user-attachments/assets/4bdf5300-4b1c-41a0-b371-0dc051c9ca99)
 
 
+Profile Tab:
+
+![profile_tab](https://github.com/user-attachments/assets/9b905551-8cee-4007-9c5b-5a9d752c1a5e)
+
+
+Forum Tab:
+
+![forum_tab](https://github.com/user-attachments/assets/f06fcdf0-6488-4c3f-8692-9919027b1ca5)
+
+
+Chat Tab:
+
+![chat_tab](https://github.com/user-attachments/assets/532aeb5f-8e6c-46e8-ac2e-5c124dac097d)
+
+
+Services Tab:
+
+![services_tab](https://github.com/user-attachments/assets/579c1729-ceb8-4a70-9919-bec098141c3f)
+
+
+
 
 ## 📱 Usage
 
