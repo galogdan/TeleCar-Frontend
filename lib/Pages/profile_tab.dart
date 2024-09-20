@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:vehicle_me/Models/Auction.dart';
 import 'package:vehicle_me/Models/User.dart';
-import 'MarketTab.dart';
-import 'ChatTab.dart';
+import 'market_tab.dart';
+import 'chat_tab.dart';
 import 'package:http/http.dart' as http;
-import 'LoginScreen.dart';  // Ensure you have this import for navigation
+import 'login_screen.dart'; 
 
 class ProfileTab extends StatelessWidget {
   final String authToken;
