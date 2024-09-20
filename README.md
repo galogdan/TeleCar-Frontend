@@ -28,33 +28,7 @@ Login and SignUp:
 - Dart SDK (2.12 or higher)
 - Android Studio or VS Code with Flutter extensions
 
-### Installation
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/your-username/telecar-frontend.git
-   ```
-
-2. Navigate to the project directory:
-   ```
-   cd telecar-frontend
-   ```
-
-3. Install dependencies:
-   ```
-   flutter pub get
-   ```
-
-4. Set up AndroidManifest.xml:
-   ```
-   cp android/app/src/main/AndroidManifest.xml.sample android/app/src/main/AndroidManifest.xml
-   ```
-   Open `android/app/src/main/AndroidManifest.xml` and replace placeholder values with your actual API keys.
-
-5. Run the app:
-   ```
-   flutter run
-   ```
 
 ## 📱 Usage
 
@@ -73,12 +47,6 @@ For security reasons, API keys are not included in the repository. To set up you
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 
 
