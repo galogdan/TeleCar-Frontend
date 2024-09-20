@@ -45,7 +45,8 @@ Services Tab:
 
 Market Tab:
 
-![market_tab](https://github.com/user-attachments/assets/a4c69702-bc06-49c4-a7fc-6e064c0dfbc9)
+![market_tab](https://github.com/user-attachments/assets/8e44e1e5-240e-46ff-81cc-2ea520bc55e3)
+
 
 
 ## 📱 Usage
