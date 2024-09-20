@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'HomePage.dart';
-import 'SignUpScreen.dart';
+import 'home_page.dart';
+import 'sign_up_screen.dart';
 import 'dart:convert';
 import 'package:vehicle_me/config.dart';
 
