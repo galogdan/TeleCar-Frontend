@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:vehicle_me/Models/Auction.dart';
 import 'package:vehicle_me/Models/User.dart';
-import 'MarketTab.dart';
-import 'ChatTab.dart';
-import 'ProfileTab.dart';
-import 'LoginScreen.dart';
+import 'market_tab.dart';
+import 'chat_tab.dart';
+import 'profile_tab.dart';
+import 'login_screen.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
-import 'ServicesTab.dart';
-import 'ForumTab.dart'; // Import the ForumPage
+import 'services_tab.dart';
+import 'forum_tab.dart'; 
 import 'package:vehicle_me/config.dart';
 import 'package:vehicle_me/Services/chat_service.dart';
 
