@@ -12,9 +12,9 @@ This repository contains the frontend code for the TeleCar app, built with Flutt
 - 💬 Real-time chat with other drivers
 - 🛒 In-app marketplace for vehicle-related items
 - 🗺️ Integrated maps for finding nearby services
-- 📅 Maintenance scheduling and reminders
-- 🚘 Vehicle information management
 - 📣 Community forum for discussions
+- 🚘 More Vehicle related features as shown in the service tab
+  
 
 ## 🚀 Getting Started
 
