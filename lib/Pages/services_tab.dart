@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:vehicle_me/Pages/Services/MoreInfoPage.dart';
-import 'package:vehicle_me/Pages/Services/StockInfoPage.dart';
-import 'package:vehicle_me/Pages/Services/ParkingPage.dart';
-import 'package:vehicle_me/Pages/Services/PersonalInfoPage.dart';
+import 'package:vehicle_me/Pages/Services/more_info_page.dart';
+import 'package:vehicle_me/Pages/Services/stock_info_page.dart';
+import 'package:vehicle_me/Pages/Services/parking_page.dart';
+import 'package:vehicle_me/Pages/Services/personal_info_page.dart';
 import 'package:vehicle_me/Pages/Services/my_tickets_tab.dart';
 import 'package:vehicle_me/Models/User.dart';
 import 'package:vehicle_me/Pages/Services/locate_vehicle_services.dart'; // Add this import
