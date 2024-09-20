@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vehicle_me/Models/Forum.dart';
 import 'package:vehicle_me/Services/forum.dart';
 import 'package:vehicle_me/Models/User.dart';
-import 'package:vehicle_me/Pages/PostDetailPage.dart';
+import 'package:vehicle_me/Pages/post_detail_page.dart';
 import 'package:vehicle_me/Services/Loading.dart';
 
 class ForumPage extends StatefulWidget {
