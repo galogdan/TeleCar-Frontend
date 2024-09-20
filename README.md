@@ -1,7 +1,8 @@
 # 🚗 TeleCar Frontend
 
+TeleCar is a comprehensive automotive application that connects vehicle owners, facilitates communication, and provides a platform for buying, selling, and discussing all things related to cars. With TeleCar, users can engage in real-time chat with other car owners, participate in forum discussions, explore auction listings, manage tickets, and access various vehicle-related services.
 
-TeleCar is a revolutionary mobile application that brings the power of connectivity to your vehicle. This repository contains the frontend code for the TeleCar app, built with Flutter.
+This repository contains the frontend code for the TeleCar app, built with Flutter.
 
 
 
@@ -40,7 +41,6 @@ Chat Tab:
 Services Tab:
 
 ![services_tab](https://github.com/user-attachments/assets/579c1729-ceb8-4a70-9919-bec098141c3f)
-
 
 
 
