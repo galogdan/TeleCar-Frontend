@@ -90,7 +90,4 @@ Your Name - [@your_twitter](https://twitter.com/your_twitter) - email@example.co
 
 Project Link: [https://github.com/your-username/telecar-frontend](https://github.com/your-username/telecar-frontend)
 
----
-
-Made with ❤️ by [Your Name]
 
