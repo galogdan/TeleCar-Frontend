@@ -1,4 +1,4 @@
-# 🚗![telecar_logo](https://github.com/user-attachments/assets/c1022df6-c33c-4e18-9e46-c1557ce7c35d) TeleCar Frontend
+# 🚗TeleCar Frontend
 
 TeleCar is a comprehensive automotive application that connects vehicle owners, facilitates communication, and provides a platform for buying, selling, and discussing all things related to cars. With TeleCar, users can engage in real-time chat with other car owners, participate in forum discussions, explore auction listings, manage tickets, and access various vehicle-related services.
 
