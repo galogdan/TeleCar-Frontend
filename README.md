@@ -18,6 +18,9 @@ This repository contains the frontend code for the TeleCar app, built with Flutt
 
 ## 🚀 Getting Started
 
+![TeleCar - Copy](https://github.com/user-attachments/assets/367887e3-2fd4-403b-9b52-e0113bab83d4)
+
+
 Login and SignUp:
 
 ![login_screen](https://github.com/user-attachments/assets/b54524cd-d394-4dfa-a232-511c4a76852d)   ![signup_screen](https://github.com/user-attachments/assets/4bdf5300-4b1c-41a0-b371-0dc051c9ca99)
